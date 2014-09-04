@@ -38,21 +38,22 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
             imageView?.image = newValue
             updatePhotoSize()
 
-            spinner.stopAnimating()
+            spinner?.stopAnimating()
         }
     }
 
     private func updatePhotoSize() {
         imageView?.frame = CGRectMake(0.0, 0.0, image?.size.width ?? 0.0, image?.size.height ?? 0.0)
-        scrollView.contentSize = image?.size ?? CGSizeZero
-        scrollView.zoomScale = 1.0;
+
+        scrollView?.contentSize = image?.size ?? CGSizeZero
+        scrollView?.zoomScale = 1.0
     }
 
     func downloadPhoto() {
         image = nil
 
         if let url = photoURL {
-            spinner.startAnimating()
+            spinner?.startAnimating()
 
             let request = NSURLRequest(URL: url)
             let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration()

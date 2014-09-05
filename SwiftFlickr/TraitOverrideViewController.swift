@@ -50,6 +50,7 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
 
     // MARK: - Split view controller delegate
 
+    // Will not be called running on iPad (bug?)
     func splitViewController(splitViewController: UISplitViewController!, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
         // If our secondary controller doesn't show anything, do the collapse ourself by doing nothing
         var photoViewController: PhotoViewController?
@@ -78,6 +79,7 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
         return false
     }
 
+    // Will not be called running on iPad (bug?)
     func splitViewController(splitViewController: UISplitViewController!, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController!) -> UIViewController! {
         if let primaryNavigationController = primaryViewController as? UINavigationController {
             for controller in primaryNavigationController.viewControllers as [UIViewController] {
@@ -90,6 +92,24 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
 
         // If there's no content on the navigation stack, make an empty view controller for the detail side
         return EmptyPhotoViewController()
+    }
+
+    // For iPad version we still use the traditional way (any better?)
+    func splitViewController(svc: UISplitViewController!, willHideViewController aViewController: UIViewController!, withBarButtonItem barButtonItem: UIBarButtonItem!, forPopoverController pc: UIPopoverController!) {
+        if let secondaryNavigationController = svc.viewControllers.last as? UINavigationController {
+            if let photoViewController = secondaryNavigationController.viewControllers.first as? PhotoViewController {
+                barButtonItem.title = aViewController.title
+                photoViewController.navigationItem.leftBarButtonItem = barButtonItem
+            }
+        }
+    }
+
+    func splitViewController(svc: UISplitViewController!, willShowViewController aViewController: UIViewController!, invalidatingBarButtonItem barButtonItem: UIBarButtonItem!) {
+        if let secondaryNavigationController = svc.viewControllers.last as? UINavigationController {
+            if let photoViewController = secondaryNavigationController.viewControllers.first as? PhotoViewController {
+                photoViewController.navigationItem.leftBarButtonItem = nil
+            }
+        }
     }
 
 }

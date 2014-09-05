@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController, UIScrollViewDelegate {
+class PhotoViewController: UIViewController, UIScrollViewDelegate, UISplitViewControllerDelegate {
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
 
@@ -73,15 +73,24 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
-    func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
-        return imageView
-    }
+    // MARK: - View controller lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         imageView = UIImageView()
         scrollView.addSubview(imageView!)
+
+        // We need this because spinner outlet is not available in photoURL.onSet e.g. this view just loaded from segue
+        if photoURL != nil {
+            spinner?.startAnimating()
+        }
+    }
+
+    // MARK: - Scroll view delegate
+
+    func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
+        return imageView
     }
 
 }

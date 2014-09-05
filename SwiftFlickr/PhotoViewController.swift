@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController, UIScrollViewDelegate, UISplitViewControllerDelegate {
+class PhotoViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
 
@@ -22,8 +22,12 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate, UISplitViewCo
         }
     }
 
-    var photoURL: NSURL? {
+    var photoURL: NSURL?
+
+    var photo: Photo? {
         didSet {
+            photoURL = NSURL(string: (photo?.url)!)
+            title = photo?.title
             downloadPhoto()
         }
     }
@@ -52,7 +56,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate, UISplitViewCo
     func downloadPhoto() {
         image = nil
 
-        if let url = photoURL {
+        if let url = self.photoURL {
             spinner?.startAnimating()
 
             let request = NSURLRequest(URL: url)
@@ -73,6 +77,10 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate, UISplitViewCo
         }
     }
 
+    override func displayingPhoto() -> Photo? {
+        return photo
+    }
+
     // MARK: - View controller lifecycle
 
     override func viewDidLoad() {
@@ -82,7 +90,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate, UISplitViewCo
         scrollView.addSubview(imageView!)
 
         // We need this because spinner outlet is not available in photoURL.onSet e.g. this view just loaded from segue
-        if photoURL != nil {
+        if photo != nil {
             spinner?.startAnimating()
         }
     }

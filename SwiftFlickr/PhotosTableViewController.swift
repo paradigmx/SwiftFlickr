@@ -22,6 +22,12 @@ class PhotosTableViewController: CoreDataTableViewController {
         return cell
     }
 
+    override func containsPhoto(photo: Photo) -> Bool {
+        let indexPath = fetchedResultsController.indexPathForObject(photo)
+
+        return (indexPath != nil)
+    }
+
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
@@ -38,7 +44,7 @@ class PhotosTableViewController: CoreDataTableViewController {
             if (segue.destinationViewController.isKindOfClass(PhotoViewController)) {
                 photoViewController = segue.destinationViewController as? PhotoViewController
             }
-            photoViewController!.photoURL = NSURL.URLWithString(photo.url)
+            photoViewController!.photo = photo
         }
     }
 

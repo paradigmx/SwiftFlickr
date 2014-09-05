@@ -11,6 +11,8 @@ import UIKit
 class PhotographerTableViewController: CoreDataTableViewController {
 
     override func awakeFromNib() {
+        super.awakeFromNib()
+
         NSNotificationCenter.defaultCenter().addObserverForName(PhotoDatabaseAvailabilityNotificationName, object: nil, queue: nil, { (note: NSNotification!) -> Void in
             self.photoDatabaseContext = note.userInfo![PhotoDatabaseAvailabilityContextName] as? NSManagedObjectContext
         })
@@ -24,6 +26,10 @@ class PhotographerTableViewController: CoreDataTableViewController {
                 fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             }
         }
+    }
+
+    override func containsPhoto(photo: Photo) -> Bool {
+        return true
     }
 
     // MARK: - Table view data source
@@ -47,6 +53,7 @@ class PhotographerTableViewController: CoreDataTableViewController {
             let photographer = fetchedResultsController.objectAtIndexPath(indexPath) as Photographer
             if (segue.destinationViewController.isKindOfClass(PhotosByPhotographerTableViewController)) {
                 let photosByPhotographerTableViewController = segue.destinationViewController as PhotosByPhotographerTableViewController
+                photosByPhotographerTableViewController.title = photographer.name
                 photosByPhotographerTableViewController.photographer = photographer
             }
         }

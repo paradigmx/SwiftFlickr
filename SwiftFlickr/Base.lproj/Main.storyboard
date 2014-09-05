@@ -7,7 +7,7 @@
         <!--Photo View Controller-->
         <scene sceneID="Z2W-Db-OHX">
             <objects>
-                <viewController id="tPf-Kg-sum" customClass="PhotoViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoViewController" id="tPf-Kg-sum" customClass="PhotoViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TPs-FH-mRv"/>
                         <viewControllerLayoutGuide type="bottom" id="iMu-g0-UQ0"/>
@@ -19,7 +19,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fL6-NA-goA">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bsT-K6-8tW">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bsT-K6-8tW">
                                 <rect key="frame" x="281" y="282" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="1366" y="557"/>
         </scene>
-        <!--Photomania-->
+        <!--Photographers-->
         <scene sceneID="y0q-QK-Gz0">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Vss-0O-D3R" customClass="PhotographerTableViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Photographers" clearsSelectionOnViewWillAppear="NO" id="Vss-0O-D3R" customClass="PhotographerTableViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Okk-bF-a8U">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="1366" y="-338"/>
         </scene>
-        <!--Photos By Photographer Table View Controller-->
+        <!--Photos-->
         <scene sceneID="4BN-3R-evF">
             <objects>
-                <tableViewController id="SJq-zd-TiW" customClass="PhotosByPhotographerTableViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Photos" id="SJq-zd-TiW" customClass="PhotosByPhotographerTableViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VSM-3q-KMG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +117,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="HM3-73-05s" kind="showDetail" id="RJI-5Y-04C"/>
+                                    <segue destination="HM3-73-05s" kind="showDetail" id="lem-Ae-x1l"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -212,6 +212,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RJI-5Y-04C"/>
+        <segue reference="lem-Ae-x1l"/>
     </inferredMetricsTieBreakers>
 </document>

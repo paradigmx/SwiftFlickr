@@ -23,11 +23,11 @@ extension Photographer {
             var error: NSError? = nil
             let matches = context.executeFetchRequest(request, error: &error)
 
-            if (error != nil || matches.count > 1) {
+            if (error != nil || matches!.count > 1) {
                 // Error handling
             }
-            else if (matches.count > 0) {
-                photographer = matches.first as Photographer?
+            else if (matches!.count > 0) {
+                photographer = matches!.first as Photographer?
             }
             else {
                 photographer = NSEntityDescription.insertNewObjectForEntityForName(Photographer.entityName(), inManagedObjectContext: context) as Photographer?

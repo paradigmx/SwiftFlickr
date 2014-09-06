@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
     var photoDatabase: UIManagedDocument? {
         didSet {
             if (!NSFileManager.defaultManager().fileExistsAtPath(photoDatabase!.fileURL.path!)) {
-                photoDatabase?.saveToURL(photoDatabase?.fileURL, forSaveOperation: UIDocumentSaveOperation.ForCreating, completionHandler: { (success: Bool) -> Void in
+                photoDatabase?.saveToURL(photoDatabase!.fileURL, forSaveOperation: UIDocumentSaveOperation.ForCreating, completionHandler: { (success: Bool) -> Void in
                     self.photoDatabaseContext = self.photoDatabase?.managedObjectContext
                 })
             }
@@ -117,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
         }
     }
 
-    func URLSession(session: NSURLSession!, downloadTask: NSURLSessionDownloadTask!, didFinishDownloadingToURL location: NSURL!) {
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
         if (downloadTask.taskDescription == flickrFetchTaskName) {
             loadFlickrPhotosFromLocalURL(location, intoContext: photoDatabaseContext, andThenExecuteBlock: nil)
         }

@@ -17,7 +17,7 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
         configureSplitViewController()
     }
 
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator!) {
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         overrideTraitCollectionForSize(size)
 
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)

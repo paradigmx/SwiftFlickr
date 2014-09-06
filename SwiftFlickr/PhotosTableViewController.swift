@@ -12,12 +12,12 @@ class PhotosTableViewController: CoreDataTableViewController {
 
     // MARK: - Table view data source
     // To use this class, the prototype cell should have "Subtitle" style and "Photo Cell" as its identifier
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Photo Cell") as UITableViewCell
 
         let photo = fetchedResultsController.objectAtIndexPath(indexPath) as Photo
-        cell.textLabel.text = photo.title
-        cell.detailTextLabel.text = photo.subtitle
+        (cell.textLabel)!.text = photo.title
+        (cell.detailTextLabel)!.text = photo.subtitle
 
         return cell
     }
@@ -30,11 +30,11 @@ class PhotosTableViewController: CoreDataTableViewController {
 
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var indexPath: NSIndexPath?
         if (sender.isKindOfClass(UITableViewCell)) {
             indexPath = tableView.indexPathForCell(sender as UITableViewCell)
-            let photo = fetchedResultsController.objectAtIndexPath(indexPath) as Photo
+            let photo = fetchedResultsController.objectAtIndexPath(indexPath!) as Photo
 
             var photoViewController: PhotoViewController? = nil
             if (segue.destinationViewController.isKindOfClass(UINavigationController)) {

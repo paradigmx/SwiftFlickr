@@ -34,23 +34,23 @@ class PhotographerTableViewController: CoreDataTableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Photographer Cell") as UITableViewCell
         let photographer = fetchedResultsController.objectAtIndexPath(indexPath) as Photographer
 
-        cell.textLabel.text = photographer.name
-        cell.detailTextLabel.text = NSString(format: "%d photos", photographer.photos.count)
+        (cell.textLabel)!.text = photographer.name
+        (cell.detailTextLabel)!.text = NSString(format: "%d photos", photographer.photos.count)
 
         return cell
     }
 
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var indexPath: NSIndexPath?
         if (sender.isKindOfClass(UITableViewCell)) {
             indexPath = tableView.indexPathForCell(sender as UITableViewCell)
-            let photographer = fetchedResultsController.objectAtIndexPath(indexPath) as Photographer
+            let photographer = fetchedResultsController.objectAtIndexPath(indexPath!) as Photographer
             if (segue.destinationViewController.isKindOfClass(PhotosByPhotographerTableViewController)) {
                 let photosByPhotographerTableViewController = segue.destinationViewController as PhotosByPhotographerTableViewController
                 photosByPhotographerTableViewController.title = photographer.name

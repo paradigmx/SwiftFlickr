@@ -36,8 +36,9 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
     private func configureSplitViewController() {
         let splitViewController = self.childViewControllers.first as UISplitViewController
         splitViewController.delegate = self
-        splitViewController.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         splitViewController.preferredPrimaryColumnWidthFraction = 0.3
+        // To display master view in portrait mode, un-comment the following lines
+//        splitViewController.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
     }
 
     override func shouldAutomaticallyForwardAppearanceMethods() -> Bool {
@@ -91,7 +92,7 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
         }
 
         // If there's no content on the navigation stack, make an empty view controller for the detail side
-        return EmptyPhotoViewController()
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("DetailNavigationController") as UIViewController
     }
 
     // For iPad version we still use the traditional way (any better?)

@@ -36,12 +36,37 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
 
     private var selectedPhoto: Photo?
 
+    private var photoViewController: PhotoViewController? {
+        get {
+            if var detail: AnyObject = splitViewController?.viewControllers.last {
+                if let navigationController = detail as? UINavigationController {
+                    detail = navigationController.viewControllers.first!
+                }
+                if let photoViewController = detail as? PhotoViewController {
+                    return photoViewController
+                }
+            }
+            return nil
+        }
+    }
+
     private func updateMapViewAnnotations() {
         if mapView != nil {
             mapView.removeAnnotations(mapView.annotations)
             mapView.addAnnotations(photosByPhotographer)
             mapView.showAnnotations(photosByPhotographer, animated: true)
+
+            if photoViewController != nil {
+                if let photo = photosByPhotographer?.firstObject as? Photo {
+                    mapView.selectAnnotation(photo, animated: true)
+                    prepareViewController(photoViewController, forSegueWithIdentifier: nil, withAnnotation: photo)
+                }
+            }
         }
+    }
+
+    override func containsPhoto(photo: Photo) -> Bool {
+        return mapView.annotations.contains(photo)
     }
 
     // MARK: - Map view delegate
@@ -53,15 +78,22 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
             view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             view.canShowCallout = true
 
-            view.leftCalloutAccessoryView = UIImageView(frame: CGRectMake(0, 0, 46, 46))
-            view.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIView
+            if photoViewController == nil {
+                view.leftCalloutAccessoryView = UIImageView(frame: CGRectMake(0, 0, 46, 46))
+                view.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIView
+            }
         }
         view.annotation = annotation
         return view
     }
 
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        updateThumbnailInAnnotationView(view)
+        if photoViewController != nil {
+            prepareViewController(photoViewController, forSegueWithIdentifier: nil, withAnnotation: view.annotation)
+        }
+        else {
+            updateThumbnailInAnnotationView(view)
+        }
     }
 
     private func updateThumbnailInAnnotationView(annotationView: MKAnnotationView) {

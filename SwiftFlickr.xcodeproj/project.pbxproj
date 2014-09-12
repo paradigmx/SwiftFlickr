@@ -26,6 +26,17 @@
 		B5AE8AB519C2EB7A00E51137 /* Photographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AB419C2EB7A00E51137 /* Photographer.swift */; };
 		B5AE8AB719C2EC3400E51137 /* Photo+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AB619C2EC3400E51137 /* Photo+Annotation.swift */; };
 		B5AE8AB919C2EF8C00E51137 /* PhotosByPhotographerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AB819C2EF8C00E51137 /* PhotosByPhotographerViewController.swift */; };
+		B5AE8AC719C3311A00E51137 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8ABB19C3311A00E51137 /* Array.swift */; };
+		B5AE8AC819C3311A00E51137 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8ABC19C3311A00E51137 /* Dictionary.swift */; };
+		B5AE8AC919C3311A00E51137 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8ABD19C3311A00E51137 /* Double.swift */; };
+		B5AE8ACA19C3311A00E51137 /* ExSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8ABF19C3311A00E51137 /* ExSwift.swift */; };
+		B5AE8ACB19C3311A00E51137 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC019C3311A00E51137 /* Float.swift */; };
+		B5AE8ACC19C3311A00E51137 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5AE8AC119C3311A00E51137 /* Info.plist */; };
+		B5AE8ACD19C3311A00E51137 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC219C3311A00E51137 /* Int.swift */; };
+		B5AE8ACE19C3311A00E51137 /* NSArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC319C3311A00E51137 /* NSArray.swift */; };
+		B5AE8ACF19C3311A00E51137 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC419C3311A00E51137 /* Range.swift */; };
+		B5AE8AD019C3311A00E51137 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC519C3311A00E51137 /* Sequence.swift */; };
+		B5AE8AD119C3311A00E51137 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC619C3311A00E51137 /* String.swift */; };
 		B5B8E0D719B9812600A0C83B /* EmptyPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B8E0D619B9812600A0C83B /* EmptyPhotoViewController.swift */; };
 		B5B8E0D919B983A600A0C83B /* UIViewController+PhotoContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B8E0D819B983A600A0C83B /* UIViewController+PhotoContent.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +80,18 @@
 		B5AE8AB419C2EB7A00E51137 /* Photographer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photographer.swift; sourceTree = "<group>"; };
 		B5AE8AB619C2EC3400E51137 /* Photo+Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+Annotation.swift"; sourceTree = "<group>"; };
 		B5AE8AB819C2EF8C00E51137 /* PhotosByPhotographerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosByPhotographerViewController.swift; sourceTree = "<group>"; };
+		B5AE8ABB19C3311A00E51137 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		B5AE8ABC19C3311A00E51137 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		B5AE8ABD19C3311A00E51137 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		B5AE8ABE19C3311A00E51137 /* ExSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExSwift.h; sourceTree = "<group>"; };
+		B5AE8ABF19C3311A00E51137 /* ExSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSwift.swift; sourceTree = "<group>"; };
+		B5AE8AC019C3311A00E51137 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
+		B5AE8AC119C3311A00E51137 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5AE8AC219C3311A00E51137 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		B5AE8AC319C3311A00E51137 /* NSArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSArray.swift; sourceTree = "<group>"; };
+		B5AE8AC419C3311A00E51137 /* Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
+		B5AE8AC519C3311A00E51137 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		B5AE8AC619C3311A00E51137 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B5B8E0D619B9812600A0C83B /* EmptyPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyPhotoViewController.swift; sourceTree = "<group>"; };
 		B5B8E0D819B983A600A0C83B /* UIViewController+PhotoContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PhotoContent.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +117,7 @@
 		B5AAD3F319B5D1B500EC3693 = {
 			isa = PBXGroup;
 			children = (
+				B5AE8ABA19C3311A00E51137 /* ExSwift */,
 				B5AAD42619B5E90E00EC3693 /* FlickrFetcher */,
 				B5AAD44219B603B800EC3693 /* CoreDataTableViewController */,
 				B5AAD3FE19B5D1B500EC3693 /* SwiftFlickr */,
@@ -191,6 +215,25 @@
 			path = CoreDataTableViewController;
 			sourceTree = "<group>";
 		};
+		B5AE8ABA19C3311A00E51137 /* ExSwift */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE8ABB19C3311A00E51137 /* Array.swift */,
+				B5AE8ABC19C3311A00E51137 /* Dictionary.swift */,
+				B5AE8ABD19C3311A00E51137 /* Double.swift */,
+				B5AE8ABE19C3311A00E51137 /* ExSwift.h */,
+				B5AE8ABF19C3311A00E51137 /* ExSwift.swift */,
+				B5AE8AC019C3311A00E51137 /* Float.swift */,
+				B5AE8AC119C3311A00E51137 /* Info.plist */,
+				B5AE8AC219C3311A00E51137 /* Int.swift */,
+				B5AE8AC319C3311A00E51137 /* NSArray.swift */,
+				B5AE8AC419C3311A00E51137 /* Range.swift */,
+				B5AE8AC519C3311A00E51137 /* Sequence.swift */,
+				B5AE8AC619C3311A00E51137 /* String.swift */,
+			);
+			path = ExSwift;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,6 +321,7 @@
 			files = (
 				B5AAD40719B5D1B500EC3693 /* Main.storyboard in Resources */,
 				B5AAD40919B5D1B500EC3693 /* Images.xcassets in Resources */,
+				B5AE8ACC19C3311A00E51137 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,17 +339,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5AE8ACE19C3311A00E51137 /* NSArray.swift in Sources */,
 				B51B5A2B19C2D27D002606DE /* PhotosByPhotographerMapViewController.swift in Sources */,
+				B5AE8AC819C3311A00E51137 /* Dictionary.swift in Sources */,
 				B5AAD42F19B5F3EE00EC3693 /* Photos.xcdatamodeld in Sources */,
+				B5AE8ACB19C3311A00E51137 /* Float.swift in Sources */,
 				B550DFA819B869FC00BC5582 /* PhotosTableViewController.swift in Sources */,
+				B5AE8ACA19C3311A00E51137 /* ExSwift.swift in Sources */,
 				B5AE8AB319C2EB1100E51137 /* Photo.swift in Sources */,
 				B5AE8AB719C2EC3400E51137 /* Photo+Annotation.swift in Sources */,
 				B5AAD44919B6049900EC3693 /* PhotographerTableViewController.swift in Sources */,
 				B5AAD44519B603B800EC3693 /* CoreDataTableViewController.m in Sources */,
+				B5AE8AD019C3311A00E51137 /* Sequence.swift in Sources */,
 				B5B8E0D719B9812600A0C83B /* EmptyPhotoViewController.swift in Sources */,
 				B5AAD43B19B5F66A00EC3693 /* Photo+Flickr.swift in Sources */,
+				B5AE8AC719C3311A00E51137 /* Array.swift in Sources */,
 				B5AAD42519B5D44A00EC3693 /* TraitOverrideViewController.swift in Sources */,
+				B5AE8ACF19C3311A00E51137 /* Range.swift in Sources */,
 				B5AAD40219B5D1B500EC3693 /* AppDelegate.swift in Sources */,
+				B5AE8AD119C3311A00E51137 /* String.swift in Sources */,
+				B5AE8ACD19C3311A00E51137 /* Int.swift in Sources */,
+				B5AE8AC919C3311A00E51137 /* Double.swift in Sources */,
 				B5AE8AB519C2EB7A00E51137 /* Photographer.swift in Sources */,
 				B5AE8AB919C2EF8C00E51137 /* PhotosByPhotographerViewController.swift in Sources */,
 				B5AAD42A19B5E90E00EC3693 /* FlickrFetcher.m in Sources */,

@@ -225,7 +225,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eUQ-L8-Wo4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HM3-73-05s" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="HM3-73-05s" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RVe-9i-3db">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -242,6 +242,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="F36-iz-iLr"/>
+        <segue reference="RAw-Wc-3g3"/>
     </inferredMetricsTieBreakers>
 </document>

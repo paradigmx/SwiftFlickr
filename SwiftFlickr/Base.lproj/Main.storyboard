@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jWN-Nk-Nym">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jWN-Nk-Nym">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Photo View Controller-->
@@ -73,7 +73,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="SJq-zd-TiW" kind="show" id="XEq-Z7-Eor"/>
+                                    <segue destination="bgQ-UV-ONK" kind="show" identifier="Show Photos by Photographer" id="HWl-de-468"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -88,10 +88,42 @@
             </objects>
             <point key="canvasLocation" x="1366" y="-338"/>
         </scene>
+        <!--Photos By Photographer Map View Controller-->
+        <scene sceneID="C69-it-oOp">
+            <objects>
+                <viewController storyboardIdentifier="PhotosByPhotographerMapViewController" id="bgQ-UV-ONK" customClass="PhotosByPhotographerMapViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mmg-Id-aLl"/>
+                        <viewControllerLayoutGuide type="bottom" id="5b7-Rd-cal"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OLk-6R-tUB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BUO-wJ-TmZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BUO-wJ-TmZ" firstAttribute="top" secondItem="OLk-6R-tUB" secondAttribute="top" id="0gh-Om-H8I"/>
+                            <constraint firstAttribute="trailing" secondItem="BUO-wJ-TmZ" secondAttribute="trailing" id="5gJ-SX-jlD"/>
+                            <constraint firstItem="5b7-Rd-cal" firstAttribute="top" secondItem="BUO-wJ-TmZ" secondAttribute="bottom" id="6cc-dX-8wQ"/>
+                            <constraint firstItem="BUO-wJ-TmZ" firstAttribute="leading" secondItem="OLk-6R-tUB" secondAttribute="leading" id="ydn-8f-PGH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="BUO-wJ-TmZ" id="o12-nM-f1M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H7w-Mz-4Tm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2178" y="-338"/>
+        </scene>
         <!--Photos-->
         <scene sceneID="4BN-3R-evF">
             <objects>
-                <tableViewController title="Photos" id="SJq-zd-TiW" customClass="PhotosByPhotographerTableViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PhotosByPhotographerTableViewController" title="Photos" id="SJq-zd-TiW" customClass="PhotosByPhotographerTableViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VSM-3q-KMG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,9 +148,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="HM3-73-05s" kind="showDetail" id="lem-Ae-x1l"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -129,7 +158,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiW-Hc-kfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2077" y="-338"/>
+            <point key="canvasLocation" x="2178" y="-1119"/>
         </scene>
         <!--Photomania-->
         <scene sceneID="eYA-W0-Htk">
@@ -211,7 +240,4 @@
             <point key="canvasLocation" x="554" y="557"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lem-Ae-x1l"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -16,8 +16,8 @@ class PhotosTableViewController: CoreDataTableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier("Photo Cell") as UITableViewCell
 
         let photo = fetchedResultsController.objectAtIndexPath(indexPath) as Photo
-        (cell.textLabel)!.text = photo.title
-        (cell.detailTextLabel)!.text = photo.subtitle
+        cell.textLabel?.text = photo.title
+        cell.detailTextLabel?.text = photo.subtitle
 
         return cell
     }
@@ -40,7 +40,6 @@ class PhotosTableViewController: CoreDataTableViewController {
             if let navigationController = viewController as? UINavigationController {
                 viewController = navigationController.viewControllers.first
             }
-
             if let photoViewController = viewController as? PhotoViewController {
                 photoViewController.photo = photo
             }

@@ -38,8 +38,8 @@ class PhotographerTableViewController: CoreDataTableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier("Photographer Cell") as UITableViewCell
         let photographer = fetchedResultsController.objectAtIndexPath(indexPath) as Photographer
 
-        (cell.textLabel)!.text = photographer.name
-        (cell.detailTextLabel)!.text = NSString(format: "%d photos", photographer.photos.count)
+        cell.textLabel?.text = photographer.name
+        cell.detailTextLabel?.text = NSString(format: "%d photos", photographer.photos.count)
 
         return cell
     }
@@ -48,8 +48,8 @@ class PhotographerTableViewController: CoreDataTableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var indexPath: NSIndexPath?
-        if sender.isKindOfClass(UITableViewCell) {
-            indexPath = tableView.indexPathForCell(sender as UITableViewCell)
+        if let cell = sender as? UITableViewCell {
+            indexPath = tableView.indexPathForCell(cell)
             let photographer = fetchedResultsController.objectAtIndexPath(indexPath!) as Photographer
             if let photosViewController = segue.destinationViewController as? PhotosByPhotographerViewController {
                 photosViewController.photographer = photographer

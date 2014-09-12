@@ -69,7 +69,7 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
             if let photo = annotationView.annotation as? Photo {
                 selectedPhoto = photo
                 dispatch_async(dispatch_queue_create("FlickrFetch", nil)) {
-                    let image = UIImage(data: NSData.dataWithContentsOfURL(NSURL(string: photo.thumbnailURL), options: NSDataReadingOptions.DataReadingUncached, error: nil))
+                    let image = UIImage(data: NSData(contentsOfURL: NSURL(string: photo.thumbnailURL)))
                     if photo == self.selectedPhoto {
                         dispatch_async(dispatch_get_main_queue()) { imageView.image = image }
                     }

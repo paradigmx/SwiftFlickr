@@ -28,7 +28,7 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
     private func overrideTraitCollectionForSize(size: CGSize) {
         var overrideTraitCollection: UITraitCollection? = nil
         traitOverrided = false
-        if size.width > 320 {
+        if size.width > 480 {
             overrideTraitCollection = UITraitCollection(horizontalSizeClass: .Regular)
             traitOverrided = true
         }

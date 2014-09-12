@@ -84,9 +84,13 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
 
     // MARK: - Navigation
 
-    private func prepareViewController(viewController: AnyObject, forSegueWithIdentifier identifier: String?, withAnnotation annotatioin: MKAnnotation) {
+    private func prepareViewController(var viewController: AnyObject?, forSegueWithIdentifier identifier: String?, withAnnotation annotatioin: MKAnnotation) {
         if let photo = annotatioin as? Photo {
             if identifier == nil || identifier!.isEmpty || identifier! == "Show Photo" {
+                if let navigationController = viewController as? UINavigationController {
+                    viewController = navigationController.viewControllers.first
+                }
+
                 if let photoViewController = viewController as? PhotoViewController {
                     photoViewController.photo = photo
                 }

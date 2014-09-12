@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bsT-K6-8tW">
-                                <rect key="frame" x="281" y="282" width="37" height="37"/>
+                                <rect key="frame" x="282" y="282" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -114,7 +114,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="BUO-wJ-TmZ" id="o12-nM-f1M"/>
-                        <segue destination="tPf-Kg-sum" kind="show" identifier="Show Photo" id="0zF-Aq-hR6"/>
+                        <segue destination="HM3-73-05s" kind="show" identifier="Show Photo" id="F36-iz-iLr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7w-Mz-4Tm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,6 +242,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0zF-Aq-hR6"/>
+        <segue reference="F36-iz-iLr"/>
     </inferredMetricsTieBreakers>
 </document>

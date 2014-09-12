@@ -36,15 +36,14 @@ class PhotosTableViewController: CoreDataTableViewController {
             indexPath = tableView.indexPathForCell(sender as UITableViewCell)
             let photo = fetchedResultsController.objectAtIndexPath(indexPath!) as Photo
 
-            var photoViewController: PhotoViewController? = nil
-            if segue.destinationViewController.isKindOfClass(UINavigationController) {
-                let detailViewController = segue.destinationViewController as UINavigationController
-                photoViewController = detailViewController.viewControllers.first as? PhotoViewController
+            var viewController: AnyObject? = segue.destinationViewController
+            if let navigationController = viewController as? UINavigationController {
+                viewController = navigationController.viewControllers.first
             }
-            if segue.destinationViewController.isKindOfClass(PhotoViewController) {
-                photoViewController = segue.destinationViewController as? PhotoViewController
+
+            if let photoViewController = viewController as? PhotoViewController {
+                photoViewController.photo = photo
             }
-            photoViewController!.photo = photo
         }
     }
 

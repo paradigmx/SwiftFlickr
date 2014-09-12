@@ -10,6 +10,8 @@ import UIKit
 
 class TraitOverrideViewController: UIViewController, UISplitViewControllerDelegate {
 
+    var traitOverrided = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,8 +27,10 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
 
     private func overrideTraitCollectionForSize(size: CGSize) {
         var overrideTraitCollection: UITraitCollection? = nil
+        traitOverrided = false
         if size.width > 320 {
             overrideTraitCollection = UITraitCollection(horizontalSizeClass: .Regular)
+            traitOverrided = true
         }
         for vc in self.childViewControllers as [UIViewController] {
             setOverrideTraitCollection(overrideTraitCollection, forChildViewController: vc)

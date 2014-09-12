@@ -22,16 +22,22 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
 
     var photographer: Photographer? {
         didSet {
-            title = photographer!.name
-            photosByPhotographer = fetchPhotosByPhotographer()
-            updateMapViewAnnotations()
+            if photographer != nil {
+                title = photographer!.name
+                photosByPhotographer = fetchPhotosByPhotographer()
+                updateMapViewAnnotations()
+            }
         }
     }
 
     private func fetchPhotosByPhotographer() -> NSArray? {
-        var request = NSFetchRequest(entityName: Photo.entityName())
-        request.predicate = NSPredicate(format: "photographer = %@", photographer!)
-        return photographer?.managedObjectContext.executeFetchRequest(request, error: nil)
+        if photographer != nil {
+            var request = NSFetchRequest(entityName: Photo.entityName())
+            request.predicate = NSPredicate(format: "photographer = %@", photographer!)
+            return photographer?.managedObjectContext.executeFetchRequest(request, error: nil)
+        }
+
+        return nil
     }
 
     private var selectedPhoto: Photo?
@@ -122,7 +128,6 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
                 if let navigationController = viewController as? UINavigationController {
                     viewController = navigationController.viewControllers.first
                 }
-
                 if let photoViewController = viewController as? PhotoViewController {
                     photoViewController.photo = photo
                 }

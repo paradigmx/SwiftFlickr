@@ -30,18 +30,23 @@ class PhotosTableViewController: CoreDataTableViewController {
 
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var indexPath: NSIndexPath?
-        if sender.isKindOfClass(UITableViewCell) {
-            indexPath = tableView.indexPathForCell(sender as UITableViewCell)
-            let photo = fetchedResultsController.objectAtIndexPath(indexPath!) as Photo
-
-            var viewController: AnyObject? = segue.destinationViewController
+    private func prepareViewController(var viewController: AnyObject?, forSegueWithIdentifier identifier: String?, withPhoto photo: Photo) {
+        if identifier == nil || identifier!.isEmpty || identifier! == "Show Photo" {
             if let navigationController = viewController as? UINavigationController {
                 viewController = navigationController.viewControllers.first
             }
             if let photoViewController = viewController as? PhotoViewController {
                 photoViewController.photo = photo
+            }
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var indexPath: NSIndexPath?
+        if sender.isKindOfClass(UITableViewCell) {
+            indexPath = tableView.indexPathForCell(sender as UITableViewCell)
+            if let photo = fetchedResultsController.objectAtIndexPath(indexPath!) as? Photo {
+                prepareViewController(segue.destinationViewController, forSegueWithIdentifier: segue.identifier, withPhoto: photo)
             }
         }
     }

@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Photo View Controller-->
+        <!--Photo With Map View Controller-->
         <scene sceneID="Z2W-Db-OHX">
             <objects>
-                <viewController storyboardIdentifier="PhotoViewController" id="tPf-Kg-sum" customClass="PhotoViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoViewController" id="tPf-Kg-sum" customClass="PhotoWithMapViewController" customModule="SwiftFlickr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TPs-FH-mRv"/>
                         <viewControllerLayoutGuide type="bottom" id="iMu-g0-UQ0"/>
@@ -19,8 +19,30 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fL6-NA-goA">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUd-kV-XiB">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="rEd-xy-gJu"/>
+                                    <constraint firstAttribute="height" constant="120" id="vQd-nM-mya"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rEd-xy-gJu"/>
+                                        <exclude reference="vQd-nM-mya"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="rEd-xy-gJu"/>
+                                        <include reference="vQd-nM-mya"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="bgQ-UV-ONK" kind="embed" id="qpQ-Wu-36t"/>
+                                </connections>
+                            </containerView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bsT-K6-8tW">
-                                <rect key="frame" x="282" y="282" width="37" height="37"/>
+                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -29,10 +51,32 @@
                             <constraint firstAttribute="trailing" secondItem="fL6-NA-goA" secondAttribute="trailing" id="6EI-dx-PEf"/>
                             <constraint firstItem="iMu-g0-UQ0" firstAttribute="top" secondItem="fL6-NA-goA" secondAttribute="bottom" id="I4w-xE-kdc"/>
                             <constraint firstAttribute="centerY" secondItem="bsT-K6-8tW" secondAttribute="centerY" id="Vcl-VT-iCn"/>
+                            <constraint firstItem="KUd-kV-XiB" firstAttribute="top" secondItem="TPs-FH-mRv" secondAttribute="bottom" constant="196" id="aop-RC-Um6">
+                                <variation key="widthClass=regular" constant="8" symbolic="YES"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="KUd-kV-XiB" secondAttribute="trailing" constant="20" symbolic="YES" id="hDJ-FT-Ahd"/>
                             <constraint firstItem="fL6-NA-goA" firstAttribute="leading" secondItem="aNA-Ya-dBM" secondAttribute="leading" id="iiE-63-D0R"/>
                             <constraint firstItem="fL6-NA-goA" firstAttribute="top" secondItem="aNA-Ya-dBM" secondAttribute="top" id="sH0-v5-kc7"/>
                             <constraint firstAttribute="centerX" secondItem="bsT-K6-8tW" secondAttribute="centerX" id="vhB-Xz-lj8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KUd-kV-XiB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="aop-RC-Um6"/>
+                                <exclude reference="hDJ-FT-Ahd"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="KUd-kV-XiB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="aop-RC-Um6"/>
+                                <include reference="hDJ-FT-Ahd"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="tHs-mE-QDd"/>
                     <connections>
@@ -42,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avH-aP-kgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366" y="557"/>
+            <point key="canvasLocation" x="1358" y="226"/>
         </scene>
         <!--Photographers-->
         <scene sceneID="y0q-QK-Gz0">
@@ -86,7 +130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brn-d9-8X5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366" y="-338"/>
+            <point key="canvasLocation" x="1358" y="-1158"/>
         </scene>
         <!--Photos By Photographer Map View Controller-->
         <scene sceneID="C69-it-oOp">
@@ -119,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7w-Mz-4Tm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2178" y="-338"/>
+            <point key="canvasLocation" x="2269" y="-838"/>
         </scene>
         <!--Photos-->
         <scene sceneID="4BN-3R-evF">
@@ -159,7 +203,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiW-Hc-kfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2178" y="-1119"/>
+            <point key="canvasLocation" x="1853" y="-1934"/>
         </scene>
         <!--Photomania-->
         <scene sceneID="eYA-W0-Htk">
@@ -175,7 +219,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15f-al-Upb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="554" y="-338"/>
+            <point key="canvasLocation" x="554" y="-1158"/>
         </scene>
         <!--Trait Override View Controller-->
         <scene sceneID="hCd-TH-KTY">
@@ -220,12 +264,12 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEt-cI-HgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266" y="226"/>
+            <point key="canvasLocation" x="-293.25" y="225.75"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Photo-->
         <scene sceneID="eUQ-L8-Wo4">
             <objects>
-                <navigationController storyboardIdentifier="DetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="HM3-73-05s" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DetailNavigationController" title="Photo" automaticallyAdjustsScrollViewInsets="NO" id="HM3-73-05s" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RVe-9i-3db">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -238,10 +282,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bl-CH-B1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="554" y="557"/>
+            <point key="canvasLocation" x="554" y="225"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RAw-Wc-3g3"/>
+        <segue reference="HWl-de-468"/>
+        <segue reference="F36-iz-iLr"/>
     </inferredMetricsTieBreakers>
 </document>

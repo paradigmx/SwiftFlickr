@@ -28,11 +28,36 @@ class PhotographerTableViewController: CoreDataTableViewController {
         }
     }
 
+    private var useEmbeddedMapView: Bool {
+        get {
+            if splitViewController != nil {
+                if let traitOverrideViewController = splitViewController?.parentViewController as? TraitOverrideViewController {
+                    return traitOverrideViewController.traitOverrided
+                }
+            }
+            return false
+        }
+    }
+
+    private var photoViewController: PhotoViewController? {
+        get {
+            if var detail: AnyObject = splitViewController?.viewControllers.last {
+                if let navigationController = detail as? UINavigationController {
+                    detail = navigationController.viewControllers.first!
+                }
+                if let photoViewController = detail as? PhotoViewController {
+                    return photoViewController
+                }
+            }
+            return nil
+        }
+    }
+
     override func containsPhoto(photo: Photo) -> Bool {
         return true
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table view controller data source
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Photographer Cell") as UITableViewCell
@@ -44,16 +69,45 @@ class PhotographerTableViewController: CoreDataTableViewController {
         return cell
     }
 
+    // MARK: - Table view controller delegate
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if useEmbeddedMapView {
+            if photoViewController != nil {
+                if let photographer = fetchedResultsController.objectAtIndexPath(indexPath) as? Photographer {
+                    prepareViewController(photoViewController, forSegueWithIdentifier: nil, withPhotographer: photographer)
+                }
+            }
+        }
+    }
+
     // MARK: - Navigation
+
+    private func prepareViewController(var viewController: AnyObject?, forSegueWithIdentifier identifier: String?, withPhotographer photographer: Photographer) {
+        if identifier == nil || identifier!.isEmpty || identifier! == "Show Photos by Photographer" {
+            if let navigationController = viewController as? UINavigationController {
+                viewController = navigationController.viewControllers.first
+            }
+            if let photoViewController = viewController as? PhotosByPhotographerViewController {
+                photoViewController.photographer = photographer
+            }
+        }
+    }
+
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "Show Photos by Photographer" {
+            return !useEmbeddedMapView
+        }
+
+        return super.shouldPerformSegueWithIdentifier(identifier, sender: sender)
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var indexPath: NSIndexPath?
         if let cell = sender as? UITableViewCell {
             indexPath = tableView.indexPathForCell(cell)
             let photographer = fetchedResultsController.objectAtIndexPath(indexPath!) as Photographer
-            if let photosViewController = segue.destinationViewController as? PhotosByPhotographerViewController {
-                photosViewController.photographer = photographer
-            }
+            prepareViewController(segue.destinationViewController, forSegueWithIdentifier: segue.identifier, withPhotographer: photographer)
         }
     }
 

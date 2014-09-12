@@ -37,6 +37,7 @@
 		B5AE8ACF19C3311A00E51137 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC419C3311A00E51137 /* Range.swift */; };
 		B5AE8AD019C3311A00E51137 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC519C3311A00E51137 /* Sequence.swift */; };
 		B5AE8AD119C3311A00E51137 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AC619C3311A00E51137 /* String.swift */; };
+		B5AE8AD319C337BA00E51137 /* PhotoWithMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8AD219C337BA00E51137 /* PhotoWithMapViewController.swift */; };
 		B5B8E0D719B9812600A0C83B /* EmptyPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B8E0D619B9812600A0C83B /* EmptyPhotoViewController.swift */; };
 		B5B8E0D919B983A600A0C83B /* UIViewController+PhotoContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B8E0D819B983A600A0C83B /* UIViewController+PhotoContent.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		B5AE8AC419C3311A00E51137 /* Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		B5AE8AC519C3311A00E51137 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		B5AE8AC619C3311A00E51137 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		B5AE8AD219C337BA00E51137 /* PhotoWithMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoWithMapViewController.swift; sourceTree = "<group>"; };
 		B5B8E0D619B9812600A0C83B /* EmptyPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyPhotoViewController.swift; sourceTree = "<group>"; };
 		B5B8E0D819B983A600A0C83B /* UIViewController+PhotoContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PhotoContent.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				B550DFA719B869FC00BC5582 /* PhotosTableViewController.swift */,
 				B550DFA919B86A2000BC5582 /* PhotosByPhotographerTableViewController.swift */,
 				B51B5A2A19C2D27D002606DE /* PhotosByPhotographerMapViewController.swift */,
+				B5AE8AD219C337BA00E51137 /* PhotoWithMapViewController.swift */,
 				B5AAD42019B5D29600EC3693 /* PhotoViewController.swift */,
 				B5B8E0D619B9812600A0C83B /* EmptyPhotoViewController.swift */,
 				B5AAD42C19B5F36200EC3693 /* Model */,
@@ -349,6 +352,7 @@
 				B5AE8AB319C2EB1100E51137 /* Photo.swift in Sources */,
 				B5AE8AB719C2EC3400E51137 /* Photo+Annotation.swift in Sources */,
 				B5AAD44919B6049900EC3693 /* PhotographerTableViewController.swift in Sources */,
+				B5AE8AD319C337BA00E51137 /* PhotoWithMapViewController.swift in Sources */,
 				B5AAD44519B603B800EC3693 /* CoreDataTableViewController.m in Sources */,
 				B5AE8AD019C3311A00E51137 /* Sequence.swift in Sources */,
 				B5B8E0D719B9812600A0C83B /* EmptyPhotoViewController.swift in Sources */,

@@ -64,7 +64,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
             let session = NSURLSession(configuration: configuration)
             // For ephemeral session configuration we can use completion handler, for background session we have to use delegate instead
             var task = session.downloadTaskWithRequest(request, completionHandler: { file, response, error in
-                if (error == nil) {
+                if error == nil {
                     if request.URL.isEqual(self.photoURL) {
                         let image = UIImage(data: NSData(contentsOfURL: file))
                         dispatch_async(dispatch_get_main_queue()) {

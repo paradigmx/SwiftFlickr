@@ -54,7 +54,7 @@ extension UISplitViewController {
 
     // Returns whether calling showDetailViewController:sender: would cause a navigation "push" to occur
     override func willShowingDetailViewControllerPushWithSender(sender: AnyObject) -> Bool {
-        if (self.collapsed) {
+        if self.collapsed {
             // If we're collapsed, re-ask this question as showViewController: to our primary view controller
             let target = self.viewControllers.last as UIViewController
             return target.willShowingViewControllerPushWithSender(sender)

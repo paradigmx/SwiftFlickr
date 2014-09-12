@@ -83,7 +83,7 @@ class TraitOverrideViewController: UIViewController, UISplitViewControllerDelega
     func splitViewController(splitViewController: UISplitViewController!, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController!) -> UIViewController! {
         if let primaryNavigationController = primaryViewController as? UINavigationController {
             for controller in primaryNavigationController.viewControllers as [UIViewController] {
-                if (controller.displayingPhoto() != nil) {
+                if controller.displayingPhoto() != nil {
                     // Do the standard behavior if we have a photo
                     return nil
                 }

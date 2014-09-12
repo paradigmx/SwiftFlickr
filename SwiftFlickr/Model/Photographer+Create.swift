@@ -16,17 +16,17 @@ extension Photographer {
     class func photographerWithName(name: String, inManagedObjectContext context: NSManagedObjectContext) -> Photographer? {
         var photographer: Photographer? = nil
 
-        if (!name.isEmpty) {
+        if !name.isEmpty {
             let request = NSFetchRequest(entityName: Photographer.entityName())
             request.predicate = NSPredicate(format: "name = %@", name)
 
             var error: NSError? = nil
             let matches = context.executeFetchRequest(request, error: &error)
 
-            if (error != nil || matches!.count > 1) {
+            if error != nil || matches!.count > 1 {
                 // Error handling
             }
-            else if (matches!.count > 0) {
+            else if matches!.count > 0 {
                 photographer = matches!.first as Photographer?
             }
             else {

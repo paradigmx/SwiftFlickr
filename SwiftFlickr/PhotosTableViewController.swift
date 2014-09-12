@@ -32,16 +32,16 @@ class PhotosTableViewController: CoreDataTableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var indexPath: NSIndexPath?
-        if (sender.isKindOfClass(UITableViewCell)) {
+        if sender.isKindOfClass(UITableViewCell) {
             indexPath = tableView.indexPathForCell(sender as UITableViewCell)
             let photo = fetchedResultsController.objectAtIndexPath(indexPath!) as Photo
 
             var photoViewController: PhotoViewController? = nil
-            if (segue.destinationViewController.isKindOfClass(UINavigationController)) {
+            if segue.destinationViewController.isKindOfClass(UINavigationController) {
                 let detailViewController = segue.destinationViewController as UINavigationController
                 photoViewController = detailViewController.viewControllers.first as? PhotoViewController
             }
-            if (segue.destinationViewController.isKindOfClass(PhotoViewController)) {
+            if segue.destinationViewController.isKindOfClass(PhotoViewController) {
                 photoViewController = segue.destinationViewController as? PhotoViewController
             }
             photoViewController!.photo = photo

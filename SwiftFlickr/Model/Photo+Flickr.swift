@@ -23,10 +23,10 @@ extension Photo {
         var error: NSError? = nil
         let matches = context.executeFetchRequest(request, error: &error)
 
-        if (error != nil || matches!.count > 1) {
+        if error != nil || matches!.count > 1 {
             // Error handling
         }
-        else if (matches!.count > 0) {
+        else if matches!.count > 0 {
             photo = matches!.first as Photo?
         }
         else {

@@ -48,7 +48,7 @@ class PhotographerTableViewController: CoreDataTableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var indexPath: NSIndexPath?
-        if (sender.isKindOfClass(UITableViewCell)) {
+        if sender.isKindOfClass(UITableViewCell) {
             indexPath = tableView.indexPathForCell(sender as UITableViewCell)
             let photographer = fetchedResultsController.objectAtIndexPath(indexPath!) as Photographer
             if let photosViewController = segue.destinationViewController as? PhotosByPhotographerViewController {

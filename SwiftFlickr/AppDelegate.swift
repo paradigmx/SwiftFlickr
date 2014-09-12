@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
     let photoDatabaseName = "Photomania"
 
     private func createPhotoDatabase() {
-        if (photoDatabase == nil) {
+        if photoDatabase == nil {
             let url = applicationDocumentsDirectory.URLByAppendingPathComponent(photoDatabaseName)
             photoDatabase = UIManagedDocument(fileURL: url)
         }
@@ -30,16 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
 
     var photoDatabase: UIManagedDocument? {
         didSet {
-            if (!NSFileManager.defaultManager().fileExistsAtPath(photoDatabase!.fileURL.path!)) {
+            if !NSFileManager.defaultManager().fileExistsAtPath(photoDatabase!.fileURL.path!) {
                 photoDatabase?.saveToURL(photoDatabase!.fileURL, forSaveOperation: UIDocumentSaveOperation.ForCreating, completionHandler: { (success: Bool) -> Void in
                     self.photoDatabaseContext = self.photoDatabase?.managedObjectContext
                 })
             }
-            else if (self.photoDatabase?.documentState == UIDocumentState.Closed) {
+            else if self.photoDatabase?.documentState == UIDocumentState.Closed {
                 photoDatabase?.openWithCompletionHandler({ (success: Bool) -> Void in
                     self.photoDatabaseContext = self.photoDatabase?.managedObjectContext
                 })
-            } else if (self.photoDatabase?.documentState == UIDocumentState.Normal) {
+            } else if self.photoDatabase?.documentState == UIDocumentState.Normal {
                 // No need to do anything here
             }
         }
@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
 
     private func startFlickrFetch() {
         flickFetchSession.getTasksWithCompletionHandler { (dataTasks: [AnyObject]!, uploadTasks: [AnyObject]!, downloadTasks: [AnyObject]!) -> Void in
-            if (downloadTasks.isEmpty) {
+            if downloadTasks.isEmpty {
                 let task = self.flickFetchSession.downloadTaskWithURL(FlickrFetcher.URLforRecentGeoreferencedPhotos())
                 task.taskDescription = self.flickrFetchTaskName
                 task.resume()
@@ -118,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
     }
 
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-        if (downloadTask.taskDescription == flickrFetchTaskName) {
+        if downloadTask.taskDescription == flickrFetchTaskName {
             loadFlickrPhotosFromLocalURL(location, intoContext: photoDatabaseContext, andThenExecuteBlock: nil)
         }
     }

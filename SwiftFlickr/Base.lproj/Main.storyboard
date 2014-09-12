@@ -114,6 +114,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="BUO-wJ-TmZ" id="o12-nM-f1M"/>
+                        <segue destination="tPf-Kg-sum" kind="show" identifier="Show Photo" id="0zF-Aq-hR6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7w-Mz-4Tm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,4 +241,7 @@
             <point key="canvasLocation" x="554" y="557"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0zF-Aq-hR6"/>
+    </inferredMetricsTieBreakers>
 </document>

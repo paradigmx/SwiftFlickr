@@ -35,7 +35,7 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
     }
 
     private func updateMapViewAnnotations() {
-        if (mapView != nil) {
+        if mapView != nil {
             mapView.removeAnnotations(mapView.annotations)
             mapView.addAnnotations(photosByPhotographer)
             mapView.showAnnotations(photosByPhotographer, animated: true)

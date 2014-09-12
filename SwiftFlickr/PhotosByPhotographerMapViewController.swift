@@ -18,7 +18,7 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
         }
     }
 
-    lazy var photosByPhotographer: NSArray? = self.fetchPhotosByPhotographer()
+    private lazy var photosByPhotographer: NSArray? = self.fetchPhotosByPhotographer()
 
     var photographer: Photographer? {
         didSet {

@@ -18,7 +18,7 @@ class PhotographerTableViewController: CoreDataTableViewController {
         })
     }
 
-    var photoDatabaseContext: NSManagedObjectContext? {
+    private var photoDatabaseContext: NSManagedObjectContext? {
         didSet {
             if let context = photoDatabaseContext {
                 var request = NSFetchRequest(entityName: Photographer.entityName())

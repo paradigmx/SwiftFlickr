@@ -15,11 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
 
     // MARK: - Managed object context initialization w/ UIManagedDocument
 
-    var applicationDocumentsDirectory: NSURL {
+    private var applicationDocumentsDirectory: NSURL {
         return NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as NSURL
     }
 
-    let photoDatabaseName = "Photomania"
+    private let photoDatabaseName = "Photomania"
 
     private func createPhotoDatabase() {
         if photoDatabase == nil {
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
         }
     }
 
-    var photoDatabase: UIManagedDocument? {
+    private var photoDatabase: UIManagedDocument? {
         didSet {
             if !NSFileManager.defaultManager().fileExistsAtPath(photoDatabase!.fileURL.path!) {
                 photoDatabase?.saveToURL(photoDatabase!.fileURL, forSaveOperation: UIDocumentSaveOperation.ForCreating, completionHandler: { (success: Bool) -> Void in
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
         }
     }
 
-    var photoDatabaseContext: NSManagedObjectContext? {
+    private var photoDatabaseContext: NSManagedObjectContext? {
         didSet {
             let userInfo = [PhotoDatabaseAvailabilityContextName: self.photoDatabaseContext!]
 
@@ -66,11 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
 
     // MARK: - Flickr fetching
 
-    let flickrFetchTaskName = "Fetch Task for Just Posted Photos"
-    let foregroundFetchTaskTimeInterval = 20 * 60
-    let backgroundFetchTaskTimeout = 10
+    private let flickrFetchTaskName = "Fetch Task for Just Posted Photos"
+    private let foregroundFetchTaskTimeInterval = 20 * 60
+    private let backgroundFetchTaskTimeout = 10
 
-    lazy var flickFetchSession: NSURLSession = {
+    private lazy var flickFetchSession: NSURLSession = {
         struct Singleton {
             static var token: dispatch_once_t = 0
             static var session: NSURLSession? = nil

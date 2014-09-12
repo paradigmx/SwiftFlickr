@@ -32,9 +32,9 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
-    var imageView: UIImageView?
+    private var imageView: UIImageView?
 
-    var image: UIImage? {
+    private var image: UIImage? {
         get {
             return imageView?.image
         }
@@ -53,7 +53,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         scrollView?.zoomScale = 1.0
     }
 
-    func downloadPhoto() {
+    private func downloadPhoto() {
         image = nil
 
         if let url = self.photoURL {

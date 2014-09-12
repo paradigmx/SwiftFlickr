@@ -35,6 +35,9 @@ extension Photo {
             photo!.title = photoInfo.valueForKeyPath(FLICKR_PHOTO_TITLE) as String
             photo!.subtitle = photoInfo.valueForKeyPath(FLICKR_PHOTO_DESCRIPTION) as String
             photo!.url = FlickrFetcher.URLforPhoto(photoInfo, format: FlickrPhotoFormatLarge).absoluteString!
+            photo!.latitude = photoInfo[FLICKR_LATITUDE] as NSNumber
+            photo!.longitude = photoInfo[FLICKR_LONGITUDE] as NSNumber
+            photo!.thumbnailURL = FlickrFetcher.URLforPhoto(photoInfo, format: FlickrPhotoFormatSquare).absoluteString!
 
             let photographerName = photoInfo.valueForKeyPath(FLICKR_PHOTO_OWNER) as String
             photo!.photographer = Photographer.photographerWithName(photographerName, inManagedObjectContext: context)!

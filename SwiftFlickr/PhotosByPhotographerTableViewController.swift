@@ -8,12 +8,11 @@
 
 import UIKit
 
-class PhotosByPhotographerTableViewController: PhotosTableViewController {
+class PhotosByPhotographerTableViewController: PhotosTableViewController, PhotosByPhotographerViewController {
 
     var photographer: Photographer? {
         didSet {
             title = photographer!.name
-
             setupFetchResultController()
         }
     }

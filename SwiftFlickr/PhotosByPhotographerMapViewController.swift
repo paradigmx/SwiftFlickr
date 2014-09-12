@@ -9,11 +9,11 @@
 import UIKit
 import MapKit
 
-class PhotosByPhotographerMapViewController: UIViewController, MKMapViewDelegate {
+class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotographerViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
-            mapView.delegate = self
+//            mapView.delegate = self
             updateMapViewAnnotations()
         }
     }
@@ -35,7 +35,11 @@ class PhotosByPhotographerMapViewController: UIViewController, MKMapViewDelegate
     }
 
     private func updateMapViewAnnotations() {
-
+        if (mapView != nil) {
+            mapView.removeAnnotations(mapView.annotations)
+            mapView.addAnnotations(photosByPhotographer)
+            mapView.showAnnotations(photosByPhotographer, animated: true)
+        }
     }
 
 }

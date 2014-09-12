@@ -51,10 +51,8 @@ class PhotographerTableViewController: CoreDataTableViewController {
         if (sender.isKindOfClass(UITableViewCell)) {
             indexPath = tableView.indexPathForCell(sender as UITableViewCell)
             let photographer = fetchedResultsController.objectAtIndexPath(indexPath!) as Photographer
-            if (segue.destinationViewController.isKindOfClass(PhotosByPhotographerTableViewController)) {
-                let photosByPhotographerTableViewController = segue.destinationViewController as PhotosByPhotographerTableViewController
-                photosByPhotographerTableViewController.title = photographer.name
-                photosByPhotographerTableViewController.photographer = photographer
+            if let photosViewController = segue.destinationViewController as? PhotosByPhotographerViewController {
+                photosViewController.photographer = photographer
             }
         }
     }

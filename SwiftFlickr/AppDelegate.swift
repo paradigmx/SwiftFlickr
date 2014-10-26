@@ -100,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSURLSessionDownloadDeleg
     // MARK: - URL session download delegate
 
     private func flickrPhotosAtURL(url: NSURL) -> NSArray {
-        let flickrJSONData = NSData(contentsOfURL: url)
+        let flickrJSONData = NSData(contentsOfURL: url)!
         let flickrPropertyList = NSJSONSerialization.JSONObjectWithData(flickrJSONData, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
         return flickrPropertyList.valueForKeyPath(FLICKR_RESULTS_PHOTOS) as NSArray
     }

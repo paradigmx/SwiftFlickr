@@ -30,7 +30,7 @@ extension Photo {
             photo = matches!.first as Photo?
         }
         else {
-            photo = NSEntityDescription.insertNewObjectForEntityForName(Photo.entityName(), inManagedObjectContext: context) as Photo?
+            photo = NSEntityDescription.insertNewObjectForEntityForName(Photo.entityName(), inManagedObjectContext: context) as? Photo
             photo!.id = id
             photo!.title = photoInfo.valueForKeyPath(FLICKR_PHOTO_TITLE) as String
             photo!.subtitle = photoInfo.valueForKeyPath(FLICKR_PHOTO_DESCRIPTION) as String

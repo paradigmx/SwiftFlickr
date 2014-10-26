@@ -16,7 +16,7 @@ class PhotosTableViewController: CoreDataTableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier("Photo Cell") as UITableViewCell
 
         let photo = fetchedResultsController.objectAtIndexPath(indexPath) as Photo
-        cell.textLabel?.text = photo.title
+        cell.textLabel.text = photo.title
         cell.detailTextLabel?.text = photo.subtitle
 
         return cell

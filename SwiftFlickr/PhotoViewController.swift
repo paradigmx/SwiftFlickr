@@ -66,7 +66,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
             var task = session.downloadTaskWithRequest(request, completionHandler: { file, response, error in
                 if error == nil {
                     if request.URL.isEqual(self.photoURL) {
-                        let image = UIImage(data: NSData(contentsOfURL: file))
+                        let image = UIImage(data: NSData(contentsOfURL: file)!)
                         dispatch_async(dispatch_get_main_queue()) {
                             self.image = image
                         }

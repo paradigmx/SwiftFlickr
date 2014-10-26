@@ -34,7 +34,7 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
         if photographer != nil {
             var request = NSFetchRequest(entityName: Photo.entityName())
             request.predicate = NSPredicate(format: "photographer = %@", photographer!)
-            return photographer?.managedObjectContext.executeFetchRequest(request, error: nil)
+            return photographer?.managedObjectContext!.executeFetchRequest(request, error: nil)
         }
 
         return nil
@@ -107,7 +107,7 @@ class PhotosByPhotographerMapViewController: UIViewController, PhotosByPhotograp
             if let photo = annotationView.annotation as? Photo {
                 selectedPhoto = photo
                 dispatch_async(dispatch_queue_create("FlickrFetch", nil)) {
-                    let image = UIImage(data: NSData(contentsOfURL: NSURL(string: photo.thumbnailURL)))
+                    let image = UIImage(data: NSData(contentsOfURL: NSURL(string: photo.thumbnailURL)!)!)
                     if photo == self.selectedPhoto {
                         dispatch_async(dispatch_get_main_queue()) { imageView.image = image }
                     }

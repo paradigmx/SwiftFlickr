@@ -30,7 +30,7 @@ extension Photographer {
                 photographer = matches!.first as Photographer?
             }
             else {
-                photographer = NSEntityDescription.insertNewObjectForEntityForName(Photographer.entityName(), inManagedObjectContext: context) as Photographer?
+                photographer = NSEntityDescription.insertNewObjectForEntityForName(Photographer.entityName(), inManagedObjectContext: context) as? Photographer
                 photographer!.name = name
             }
         }

@@ -63,7 +63,7 @@ class PhotographerTableViewController: CoreDataTableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier("Photographer Cell") as UITableViewCell
         let photographer = fetchedResultsController.objectAtIndexPath(indexPath) as Photographer
 
-        cell.textLabel?.text = photographer.name
+        cell.textLabel.text = photographer.name
         cell.detailTextLabel?.text = NSString(format: "%d photos", photographer.photos.count)
 
         return cell
@@ -94,7 +94,7 @@ class PhotographerTableViewController: CoreDataTableViewController {
         }
     }
 
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         if identifier == "Show Photos by Photographer" {
             return !useEmbeddedMapView
         }

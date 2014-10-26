@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension SequenceOf {
+internal extension SequenceOf {
 
     /**
         First element of the sequence.
@@ -123,12 +123,16 @@ public extension SequenceOf {
     */
     func skipWhile(condition:(T) -> Bool) -> SequenceOf<T> {
         var generator =  self.generate()
+        var checkingGenerator = self.generate()
+        
         var keepSkipping = true
+        
         while keepSkipping {
-            if let nextItem = generator.next() {
-                keepSkipping = condition(nextItem)
-            } else {
-                keepSkipping = false
+            var nextItem = checkingGenerator.next()
+            keepSkipping = nextItem != nil ? condition(nextItem!) : false
+            
+            if keepSkipping {
+                generator.next()
             }
         }
         return SequenceOf(generator)
